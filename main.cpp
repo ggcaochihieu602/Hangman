@@ -189,16 +189,23 @@ char getInput(){
 
 int main()
 {
-    srand(time(0));
-    Game game;
-    initGame(game);
+    cout << "Are you ready to play hangman? yes or no:";
+    string cf;
+    getline(cin, cf);
+    while (cf=="yes"){
+        srand(time(0));
+        Game game;
+        initGame(game);
 
-    do {
-        display(game);
-        char input = getInput();
-        updateGame(input, game);
-    } while (!gameOver(game));
-    displayResult(game);
-
+        do {
+            display(game);
+            char input = getInput();
+            updateGame(input, game);
+        } while (!gameOver(game));
+        displayResult(game);
+      cout << endl;
+      cout << "Ban co muon tiep tuc choi? yes or no:" << endl;
+      cin >> cf;
+    }
     return 0;
 }
